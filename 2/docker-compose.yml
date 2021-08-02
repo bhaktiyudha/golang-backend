@@ -1,0 +1,18 @@
+version: "3.3"
+
+services:
+  OMDBAPI:
+    container_name: OMDBAPI
+    build: .
+    image: omdb_api
+    restart: always
+    environment:
+        API_KEY     : ${API_KEY}
+        API_URL     : ${API_URL}
+        DB_Database : ${DB_Database}
+        DB_Username : ${DB_Username}
+        DB_Password : ${DB_Password}
+        DB_Host     : ${DB_Host}
+        DB_Port     : ${DB_Port}
+    ports:
+        - "${API_Port}:${API_Port}"
